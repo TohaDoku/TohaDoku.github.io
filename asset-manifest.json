@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/app/static/css/main.9e2d87a9.css",
-    "main.js": "/app/static/js/main.3e1e1d45.js",
+    "main.css": "/app/static/css/main.462131f8.css",
+    "main.js": "/app/static/js/main.b90765bb.js",
     "static/media/Play-Bold.ttf": "/app/static/media/Play-Bold.b78f3be6adabf73cde7f.ttf",
     "static/media/Play-Regular.ttf": "/app/static/media/Play-Regular.e0424c5771f87080b05e.ttf",
     "static/media/3.webp": "/app/static/media/3.c4d78f3a32eb4fa03a15.webp",
@@ -19,16 +19,20 @@
     "static/media/main.webp": "/app/static/media/main.5a9bad2d411bd7fba252.webp",
     "static/media/logo.webp": "/app/static/media/logo.53760d49a5429858493c.webp",
     "static/media/mini_logo.svg": "/app/static/media/mini_logo.78255d579d977347be9ee08340ac3e40.svg",
+    "static/media/team.svg": "/app/static/media/team.b67c28f95146b3f5ca1757d7a6fbda88.svg",
+    "static/media/graduate.svg": "/app/static/media/graduate.122673822bfe081429c0f2e736fb35a2.svg",
     "static/media/icons8.svg": "/app/static/media/icons8.2877db60213ad9a61c7cacc193b4130e.svg",
+    "static/media/edit.svg": "/app/static/media/edit.e04e34ff9c648ba3b3a007bd78045e24.svg",
+    "static/media/laptop.svg": "/app/static/media/laptop.1460e5d746307b68a7046f5f3f7ab09a.svg",
     "static/media/icons8-upload.svg": "/app/static/media/icons8-upload.d8ad7299ced669a17442d862cb29dc7b.svg",
     "static/media/icons9.svg": "/app/static/media/icons9.d8ad7299ced669a17442d862cb29dc7b.svg",
     "static/media/icons10.svg": "/app/static/media/icons10.c6ba0f0a249f7a5431551c6cd999b60a.svg",
     "index.html": "/app/index.html",
-    "main.9e2d87a9.css.map": "/app/static/css/main.9e2d87a9.css.map",
-    "main.3e1e1d45.js.map": "/app/static/js/main.3e1e1d45.js.map"
+    "main.462131f8.css.map": "/app/static/css/main.462131f8.css.map",
+    "main.b90765bb.js.map": "/app/static/js/main.b90765bb.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e2d87a9.css",
-    "static/js/main.3e1e1d45.js"
+    "static/css/main.462131f8.css",
+    "static/js/main.b90765bb.js"
   ]
 }
