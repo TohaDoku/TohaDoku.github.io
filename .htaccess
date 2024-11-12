@@ -1,9 +1,28 @@
-RewriteEngine On
-RewriteRule ^([^/]+)/$ $1.html
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^/]+)/$ $1.html
-RewriteRule ^([^/]+)/([^/]+)/$ /$1/$2.html
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
-RewriteRule (.*)$ /$1/ [R=301,L]
+# Убедитесь, что сервер распознает файл .htaccess
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Перенаправление всех запросов на Next.js для обработки
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /index.html [L]
+
+    # Перенаправление для HTTPS (если требуется)
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Кэширование для статики
+    <FilesMatch "\.(jpg|jpeg|png|gif|css|js|ico|svg|woff|woff2|ttf|otf|eot)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+
+    # Отключение индексации директорий
+    Options -Indexes
+</IfModule>
+
+# Защита от XSS
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+</IfModule>
