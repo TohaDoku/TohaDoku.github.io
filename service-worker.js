@@ -1,5 +1,5 @@
 const CACHE_NAME = "x-solution-auth-cache-v1";
-const URLS_TO_CACHE = ["/author-login/"];
+const URLS_TO_CACHE = ["/"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
