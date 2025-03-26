@@ -26,3 +26,17 @@ self.addEventListener("fetch", (event) => {
     caches.match(event.request).then((response) => response || fetch(event.request))
   );
 });
+
+self.addEventListener("fetch", (event) => {
+  const url = new URL(event.request.url);
+
+  // Не кешируем запросы к API
+  if (url.pathname.startsWith("/api/")) {
+    return fetch(event.request); // Пропускаем через сеть без кеша
+  }
+
+  event.respondWith(
+    caches.match(event.request).then((response) => response || fetch(event.request))
+  );
+});
+
