@@ -1,5 +1,5 @@
 const CACHE_NAME = "x-solution-auth-cache-v1";
-const URLS_TO_CACHE = ["/author-login/"];
+const URLS_TO_CACHE = ["/"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -22,7 +22,16 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+  const url = new URL(event.request.url);
+
+  // Отключаем кеширование для API-запросов
+  if (url.pathname.startsWith("/api/")) {
+    return;
+  }
+
   event.respondWith(
-    caches.match(event.request).then((response) => response || fetch(event.request))
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
   );
 });
