@@ -22,21 +22,16 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => response || fetch(event.request))
-  );
-});
-
-self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
 
-  // Не кешируем запросы к API
+  // Отключаем кеширование для API-запросов
   if (url.pathname.startsWith("/api/")) {
-    return fetch(event.request); // Пропускаем через сеть без кеша
+    return;
   }
 
   event.respondWith(
-    caches.match(event.request).then((response) => response || fetch(event.request))
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
   );
 });
-
